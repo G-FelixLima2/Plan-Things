@@ -1,60 +1,62 @@
 import { Text, View, StyleSheet, Image } from "react-native";
+import { Button } from "@/components/Buttons/Button";
 
 export default function index() {
+  function handleLogin(){
+    console.log("Login")
+  }
   return (
-    <View style={style.ContainerPrime}>
-        <Image source={require("@/assets/feature-collaboration.png")} 
-        style={style.illustration} />
+    <View style={style.Container}>
+      <Text style={style.Titulo}>Plan Things</Text>
 
-      <Text style={style.title}>Texto muito bacana de Introdução</Text>
+      <View style={style.ContainerMinor}>
+        
+        <Image source={require('@/assets/shoeske.webp')} style={style.Imagem} />
 
-        <button style={style.button1}>Entrar</button>
-        <button style={style.button2}>Cadastrar</button>
+        <View>
+          <Button title="Entrar" onPress={handleLogin} />
+          <hr />
+          <Button title="Cadastrar" onPress={handleLogin} />
+        </View>
+      </View>
 
     </View>
   );
 }
 
-const style = StyleSheet.create ({
-  ContainerPrime: {
-    justifyContent: "center",
-    alignItems: "center",
+const style = StyleSheet.create({
+
+  Container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  
+
+  ContainerMinor: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 20,
+    backgroundColor: '#fff',
+    width: '100%',
+    height: '100%',
   },
 
-  illustration: {
-    width: "100%",
-    height: 330,
-    borderColor: "#000",
-  },
-
-  title: {
-    fontSize: 20,
+  Titulo: {
+    fontSize: 32,
     fontWeight: 700,
+    color: '#023E8A',
+
+    marginTop: 20,
   },
 
-  button1: {
-    backgroundColor: "blue",
-    borderRadius: 5,
-    borderWidth: 0,
-    fontSize: 20,
-    color: "#fff",
-    margin: 10,
-
-    width: 200,
-    height: 30,
-  },
-
-  button2: {
-    backgroundColor: "transparent",
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: "#4c4c4c",
-    fontSize: 20,
-    color: "#3c3c3c",
-    margin: 10,
-
-    width: 200,
-    height: 30,
-  },
+  Imagem: {
+    height: 400,
+    width: "100%",
+    resizeMode: 'contain',
+    marginBottom: 10,
+  }
 
 })
