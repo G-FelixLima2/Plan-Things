@@ -1,10 +1,18 @@
 import { Text, View, StyleSheet, Image } from "react-native";
-import { Button } from "@/components/Buttons/Button";
+import { Button, ButtonMinor } from "@/components/Button";
+import { useRouter } from 'expo-router';
 
 export default function index() {
+  const router = useRouter();
+
   function handleLogin(){
-    console.log("Login")
+    router.push('/home');
   }
+
+  function handleRegister(){
+    router.push('/home');
+  }
+
   return (
     <View style={style.Container}>
       <Text style={style.Titulo}>Plan Things</Text>
@@ -13,12 +21,10 @@ export default function index() {
         
         <Image source={require('@/assets/shoeske.webp')} style={style.Imagem} />
 
-        <View>
+       
           <Button title="Entrar" onPress={handleLogin} />
-          <hr />
-          <Button title="Cadastrar" onPress={handleLogin} />
+          <ButtonMinor title="Cadastrar" onPress={handleRegister} />
         </View>
-      </View>
 
     </View>
   );
@@ -31,6 +37,9 @@ const style = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#fff',
+
+    width: '100%',
+    height: '100%',
   },
   
 
@@ -48,6 +57,8 @@ const style = StyleSheet.create({
     fontSize: 32,
     fontWeight: 700,
     color: '#023E8A',
+    width: '100%',
+    textAlign: 'center',
 
     marginTop: 20,
   },
@@ -57,6 +68,6 @@ const style = StyleSheet.create({
     width: "100%",
     resizeMode: 'contain',
     marginBottom: 10,
-  }
+  },
 
 })
